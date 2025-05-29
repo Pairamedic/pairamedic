@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pafford Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: red;
+      margin: 0;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .link-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+    a {
+      display: block;
+      padding: 12px;
+      background-color: #333;
+      color: red;
+      border: 1px solid #555;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
+    a:hover {
+      background-color: #444;
+    }
+    .toggle-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .toggle-btn {
+      padding: 10px 20px;
+      font-weight: bold;
+      background-color: #333;
+      color: red;
+      border: 1px solid red;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .light-mode {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .light-mode a {
+      background-color: #fff;
+      color: #0077cc;
+      border: 1px solid #ccc;
+    }
+    .light-mode a:hover {
+      background-color: #e6f0ff;
+    }
+    .light-mode .toggle-btn {
+      background-color: #fff;
+      color: #0077cc;
+      border: 1px solid #0077cc;
+    }
+    .notes-area {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      background-color: #111;
+      color: red;
+      border: 1px solid #555;
+    }
+    .light-mode textarea {
+      background-color: #fff;
+      color: #000;
+    }
+    #clock {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pafford Quick Access</h1>
+  <div id="clock">Loading time...</div>
+  <div class="toggle-container">
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Theme</button>
+  </div>
+
+  <h2>🚨 Operational Tools</h2>
+  <div class="link-container">
+    <a href="https://paffordemsar.ninthbrain.com" target="_blank">🧠 Ninth Brain Suite - Arkansas</a>
+    <a href="https://app1.pstrax.com" target="_blank">🧰 PSTrax</a>
+    <a href="https://helpdesk.paffordems.com" target="_blank">🛠️ Pafford Helpdesk</a>
+  </div>
+
+  <h2>📝 Documentation</h2>
+  <div class="link-container">
+    <a href="https://pafford.imagetrendelite.com/Elite/Organizationpafford/RunForm/Login" target="_blank">🧾 ImageTrend Field</a>
+    <a href="https://pafford.imagetrendelite.com/Elite/Organizationpafford/" target="_blank">📋 ImageTrend Elite</a>
+    <a href="https://myemsnarrative.com/accounts/login/?next=/dashboard/" target="_blank">🧠 AI Narrative Generator</a>
+  </div>
+
+  <h2>🧠 Field Tools</h2>
+  <div class="link-container">
+    <a href="https://pairamedic.github.io/arrest/" target="_blank">📟 Intervention Tracker</a>
+    <a href="https://pairamedic.github.io/protocolassistant/" target="_blank">📚 Protocol Assistant</a>
+    <a href="https://pairamedic.github.io/pchecklist/" target="_blank">✅ ePCR Checklist</a>
+    <a href="https://pairamedic.github.io/capacitytool/" target="_blank">🧠 Mental Capacity Tool</a>
+  </div>
+
+  
+  <h2>📞 Administrative Contacts</h2>
+  <div class="link-container">
+    <a href="tel:+18708269201">📲 Pafford ODS: +1 (870) 826-9201</a>
+    <a href="tel:+14796472736">📲 Operations Manager: (479) 647-2736</a>
+    <a href="tel:+18554762365">📲 Pafford Med Link: (855) 476-2365</a>
+  </div>
+
+  <h2>🩺 Clinical Resources</h2>
+  <div class="link-container">
+    <a href="tel:+18004828049">👵 Adult Protective Services: 1 (800) 482-8049</a>
+    <a href="tel:+18004825964">🧒 Child Protective Services: 1 (800) 482-5964</a>
+    <a href="tel:+15013011409">🏥 Arkansas Trauma Com: (501) 301-1409</a>
+    <a href="tel:+18002221222">☠️ Arkansas Poison Control: 800-222-1222</a>
+  </div>
+
+  <h2>🌐 Support</h2>
+
+  <div class="link-container">
+    <a href="https://www.idrivearkansas.com" target="_blank">🛣️ Arkansas Road Conditions</a>
+    <a href="tel:911">📞 Emergency Call</a>
+  </div>
+
+  <h2>🗒️ Quick Notes</h2>
+  <div class="notes-area">
+    <textarea id="notes" placeholder="Type your quick notes here..."></textarea>
+  </div>
+
+  <script>
+    // Clock
+    setInterval(() => {
+      document.getElementById("clock").textContent = new Date().toLocaleString();
+    }, 1000);
+
+    // Theme Toggle
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+
+    // Notes Persistence
+    const notes = document.getElementById("notes");
+    notes.value = localStorage.getItem("quicknotes") || "";
+    notes.addEventListener("input", () => {
+      localStorage.setItem("quicknotes", notes.value);
+    });
+  </script>
+</body>
+</html>
